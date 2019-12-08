@@ -1,8 +1,8 @@
 declare type LocationType = {
-  id: string
+  apiId: number
   name: string
   type: string
   dimension: string
-  residents: CharacterType[]
+  residents: string[]
   created: string
 }

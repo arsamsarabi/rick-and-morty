@@ -1,5 +1,5 @@
 type CharacterType = {
-  apiId: string
+  apiId: number
   name: string
   status: string
   species: string

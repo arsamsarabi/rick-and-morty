@@ -1,4 +1,4 @@
-export const rick = {
+export const characterMock = {
   id: 1,
   name: 'Rick Sanchez',
   status: 'Alive',

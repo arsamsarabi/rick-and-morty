@@ -1,1 +1,0 @@
-interface OriginType extends LocationType {}

@@ -8,7 +8,7 @@ const typeDefs = gql`
     species: String!
     type: String!
     gender: String!
-    origin: Origin!
+    origin: Location!
     location: Location!
     image: String!
     episode: [String!]!

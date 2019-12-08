@@ -3,15 +3,11 @@ import mongoose from 'mongoose'
 const { Schema } = mongoose
 
 const LocationSchema = new Schema({
+  apiId: String,
   name: String,
   type: String,
   dimension: String,
-  residents: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: 'Character',
-    },
-  ],
+  residents: [String],
   created: String,
 })
 

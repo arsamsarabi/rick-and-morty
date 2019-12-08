@@ -14,3 +14,23 @@ export const normalizeCharacters = (raw: any): CharacterType[] =>
     episode: obj.episode,
     created: obj.created,
   }))
+
+export const normalizeLocations = (raw: any): LocationType[] =>
+  raw.map((obj: any) => ({
+    apiId: obj.id,
+    name: obj.name,
+    type: obj.type,
+    dimension: obj.dimension,
+    residents: obj.residents,
+    created: obj.created,
+  }))
+
+export const normalizeEpisodes = (raw: any): EpisodeType[] =>
+  raw.map((obj: any) => ({
+    apiId: obj.id,
+    name: obj.name,
+    air_date: obj.air_date,
+    episode: obj.episode,
+    characters: obj.characters,
+    created: obj.created,
+  }))
