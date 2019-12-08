@@ -1,15 +1,13 @@
-// import api from './helpers'
+import { Character } from '../database'
+import { normalizeCharacters } from './helpers'
+import { getAllCharacters } from './services'
 
-// export const getAllCharacters = (): CharacterType[] => {
-//   return result
-// }
-
-// const getEntireUserList = async function(pageNo = 1) {
-//   const results = await getUsers(pageNo)
-//   console.log('Retreiving data from API for page : ' + pageNo)
-//   if (results.length > 0) {
-//     return results.concat(await getEntireUserList(pageNo + 1))
-//   } else {
-//     return results
-//   }
-// }
+export const seed = async () => {
+  const results = await getAllCharacters()
+  const characters = normalizeCharacters(results)
+  characters.forEach(character => {
+    const newCharacter = new Character(character)
+    newCharacter.save()
+    console.log(`${character.name} saved`)
+  })
+}

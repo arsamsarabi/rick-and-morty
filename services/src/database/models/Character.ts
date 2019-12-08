@@ -3,19 +3,16 @@ import mongoose from 'mongoose'
 const { Schema } = mongoose
 
 const CharacterSchema = new Schema({
+  apiId: String,
   name: String,
   status: String,
   species: String,
   type: String,
   gender: String,
-  origin: {
-    type: Schema.Types.ObjectId,
-    ref: 'Origin',
-  },
-  location: {
-    type: Schema.Types.ObjectId,
-    ref: 'Location',
-  },
+  origin: String,
+  originUrl: String,
+  location: String,
+  locationUrl: String,
   image: String,
   episode: [String],
   url: String,

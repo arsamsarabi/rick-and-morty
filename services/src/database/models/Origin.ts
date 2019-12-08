@@ -3,7 +3,6 @@ import mongoose from 'mongoose'
 const { Schema } = mongoose
 
 const OriginSchema = new Schema({
-  id: String,
   name: String,
   type: String,
   dimension: String,

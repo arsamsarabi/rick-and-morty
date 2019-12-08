@@ -1,14 +1,15 @@
 type CharacterType = {
-  id: string
+  apiId: string
   name: string
   status: string
   species: string
   type: string
   gender: string
-  origin: OriginType
-  location: LocationType
+  origin: string
+  originUrl: string
+  location: string
+  locationUrl: string
   image: string
   episode: string[]
-  url: string
   created: string
 }
