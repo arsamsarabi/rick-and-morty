@@ -1,17 +1,17 @@
 import { gql } from 'apollo-server-express'
 
 const typeDefs = gql`
-  type Location {
+  type Episode {
     apiId: Int
     name: String
-    type: String
-    dimension: String
-    residents: [Character!]!
+    air_date: String
+    episode: string
+    characters: [Character!]!
     created: String
   }
   type Query {
-    location(id: ID!): Location
-    locations: [Locations]
+    episode(id: ID!): Episode
+    episodes: [Episodes]
   }
 `
 

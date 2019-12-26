@@ -1,11 +1,9 @@
 import { Character, Location, Episode } from '../database'
-import { normalizeCharacters, normalizeLocations, normalizeEpisodes } from './helpers'
-import { getAllPaginatedData } from './services'
+import { fetchAllCharacters, fetchAllLocations, fetchAllEpisodes } from './services'
+import { processCharacters, processLocations, processEpisodes } from './helpers'
 
-const fetchAndSaveAllCharacters = async (): Promise<void> => {
+const saveCharacters = async (characters: CharacterType[]): Promise<void> => {
   Character.collection.drop()
-  const results = await getAllPaginatedData('character')
-  const characters = normalizeCharacters(results)
   characters.forEach(character => {
     const newCharacter = new Character(character)
     newCharacter.save()
@@ -13,10 +11,8 @@ const fetchAndSaveAllCharacters = async (): Promise<void> => {
   })
 }
 
-const fetchAndSaveAllLocations = async (): Promise<void> => {
+const saveLocations = async (locations: LocationType[]): Promise<void> => {
   Location.collection.drop()
-  const results = await getAllPaginatedData('location')
-  const locations = normalizeLocations(results)
   locations.forEach(location => {
     const newLocation = new Location(location)
     newLocation.save()
@@ -24,10 +20,8 @@ const fetchAndSaveAllLocations = async (): Promise<void> => {
   })
 }
 
-const fetchAndSaveAllEpisodes = async (): Promise<void> => {
+const saveEpisodes = async (episodes: EpisodeType[]): Promise<void> => {
   Episode.collection.drop()
-  const results = await getAllPaginatedData('episode')
-  const episodes = normalizeEpisodes(results)
   episodes.forEach(episode => {
     const newEpisode = new Episode(episode)
     newEpisode.save()
@@ -37,9 +31,15 @@ const fetchAndSaveAllEpisodes = async (): Promise<void> => {
 
 export const seed = async () => {
   try {
-    await fetchAndSaveAllCharacters()
-    await fetchAndSaveAllLocations()
-    await fetchAndSaveAllEpisodes()
+    const _characters: RawCharacterType[] = await fetchAllCharacters()
+    const _locations: RawLocationType[] = await fetchAllLocations()
+    const _episodes: RawEpisodeType[] = await fetchAllEpisodes()
+    const processedCharacters: CharacterType[] = processCharacters(_characters)
+    const processedLocations: LocationType[] = processLocations(_locations)
+    const processedEpisodes: EpisodeType[] = processEpisodes(_episodes)
+    await saveCharacters(processedCharacters)
+    await saveLocations(processedLocations)
+    await saveEpisodes(processedEpisodes)
   } catch (err) {
     console.error(err)
   }

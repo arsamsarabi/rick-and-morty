@@ -2,7 +2,7 @@ import { gql } from 'apollo-server-express'
 
 const typeDefs = gql`
   type Character {
-    id: ID!
+    apiId: Int
     name: String!
     status: String!
     species: String!
@@ -11,13 +11,12 @@ const typeDefs = gql`
     origin: Location!
     location: Location!
     image: String!
-    episode: [String!]!
-    url: String!
+    episode: [Episode!]!
     created: String!
   }
   type Query {
-    getCharacter(id: ID!): Character
-    getAllCharacters: [Character]
+    character(id: ID!): Character
+    characters: [Character]
   }
 `
 
