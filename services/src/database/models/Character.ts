@@ -10,12 +10,9 @@ const CharacterSchema = new Schema({
   type: String,
   gender: String,
   origin: String,
-  originUrl: String,
   location: String,
-  locationUrl: String,
   image: String,
-  episode: [String],
-  url: String,
+  episodes: [String],
   created: String,
 })
 

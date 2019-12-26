@@ -1,7 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 
-const writeToFile = <T>(objectName: string, object: T): void => {
+export const writeToFile = <T>(objectName: string, object: T): void => {
   fs.writeFile(path.resolve(__dirname, `./mocks/all${objectName}.json`), object, (err: any): void => {
     console.error(err)
   })
@@ -12,10 +12,10 @@ const extractApiIdFromUrl = (url: string): string => url.substring(url.lastIndex
 const extractApiIdsFromUrlArray = (episodes: string[]): string[] =>
   episodes.map(episode => extractApiIdFromUrl(episode))
 
-export const processCharacters = (characters: RawCharacterType[]): CharacterType[] => {
-  const result: CharacterType[] = characters.map(
+export const processCharacters = (characters: RawCharacterType[]): CharacterType[] =>
+  characters.map(
     ({ id, name, status, species, type, gender, origin, location, image, episode, created }: RawCharacterType) => ({
-      apiId: id,
+      apiId: String(id),
       name,
       status,
       species,
@@ -28,36 +28,23 @@ export const processCharacters = (characters: RawCharacterType[]): CharacterType
       created,
     }),
   )
-  writeToFile('characters', JSON.stringify(result))
-  return result
-}
 
-export const processLocations = (locations: RawLocationType[]): LocationType[] => {
-  const result: LocationType[] = locations.map(
-    ({ id, name, type, dimension, residents, created }: RawLocationType) => ({
-      apiId: id,
-      name,
-      type,
-      dimension,
-      residents: extractApiIdsFromUrlArray(residents),
-      created,
-    }),
-  )
-  writeToFile('locations', JSON.stringify(result))
-  return result
-}
+export const processLocations = (locations: RawLocationType[]): LocationType[] =>
+  locations.map(({ id, name, type, dimension, residents, created }: RawLocationType) => ({
+    apiId: String(id),
+    name,
+    type,
+    dimension,
+    residents: extractApiIdsFromUrlArray(residents),
+    created,
+  }))
 
-export const processEpisodes = (episodes: RawEpisodeType[]): EpisodeType[] => {
-  const result: EpisodeType[] = episodes.map(
-    ({ id, name, air_date, episode, characters, created }: RawEpisodeType) => ({
-      apiId: id,
-      name,
-      air_date,
-      episode,
-      characters: extractApiIdsFromUrlArray(characters),
-      created,
-    }),
-  )
-  writeToFile('episodes', JSON.stringify(result))
-  return result
-}
+export const processEpisodes = (episodes: RawEpisodeType[]): EpisodeType[] =>
+  episodes.map(({ id, name, air_date, episode, characters, created }: RawEpisodeType) => ({
+    apiId: String(id),
+    name,
+    air_date,
+    episode,
+    characters: extractApiIdsFromUrlArray(characters),
+    created,
+  }))

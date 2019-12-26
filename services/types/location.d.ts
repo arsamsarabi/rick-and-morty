@@ -11,5 +11,5 @@ declare type RawLocationType = {
 declare type OmittedFromRawLocationType = 'id' | 'url'
 
 declare type LocationType = Omit<RawLocationType, OmittedFromRawLocationType> & {
-  apiId: number
+  apiId: string
 }

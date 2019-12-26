@@ -11,5 +11,5 @@ declare type RawEpisodeType = {
 declare type OmittedFromRawEpisodeType = 'id' | 'url'
 
 declare type EpisodeType = Omit<RawEpisodeType, OmittedFromRawEpisodeType> & {
-  apiId: number
+  apiId: string
 }

@@ -22,7 +22,7 @@ declare type RawCharacterType = {
 declare type OmittedFromRawCharacter = 'origin' | 'location' | 'id' | 'episode' | 'url'
 
 declare type CharacterType = Omit<RawCharacterType, OmittedFromRawCharacter> & {
-  apiId: number
+  apiId: string
   origin: string
   location: string
   episodes: string[]

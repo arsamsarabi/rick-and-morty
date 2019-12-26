@@ -34,12 +34,12 @@ export const seed = async () => {
     const _characters: RawCharacterType[] = await fetchAllCharacters()
     const _locations: RawLocationType[] = await fetchAllLocations()
     const _episodes: RawEpisodeType[] = await fetchAllEpisodes()
-    const processedCharacters: CharacterType[] = processCharacters(_characters)
-    const processedLocations: LocationType[] = processLocations(_locations)
-    const processedEpisodes: EpisodeType[] = processEpisodes(_episodes)
-    await saveCharacters(processedCharacters)
-    await saveLocations(processedLocations)
-    await saveEpisodes(processedEpisodes)
+    const characters: CharacterType[] = processCharacters(_characters)
+    const locations: LocationType[] = processLocations(_locations)
+    const episodes: EpisodeType[] = processEpisodes(_episodes)
+    await saveCharacters(characters)
+    await saveLocations(locations)
+    await saveEpisodes(episodes)
   } catch (err) {
     console.error(err)
   }
