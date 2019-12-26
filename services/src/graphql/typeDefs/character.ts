@@ -11,7 +11,7 @@ const typeDefs = gql`
     origin: Location!
     location: Location!
     image: String!
-    episode: [Episode!]!
+    episodes: [Episode!]!
     created: String!
   }
   type Query {
