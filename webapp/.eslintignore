@@ -1,0 +1,8 @@
+node_modules
+out
+stylelint.config.js
+prettier.config.js
+next.config.js
+*.md
+*.jpg
+postcss.config.js

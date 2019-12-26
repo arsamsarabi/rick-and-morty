@@ -1,0 +1,13 @@
+{
+  "title": "Arsam Sarabi | Fontware Engineer",
+  "description": "Full-Stack Engineer based in Oxford",
+  "contact": {
+    "website_url": "https://arsam.io",
+    "made_with_url": "https://gatsbyjs.com",
+    "email": "arsamsarabi@me.com",
+    "github_handle": "arsamsarabi",
+    "github_url": "https://github.com/arsamsarabi"
+  },
+  "primary_color": "#369",
+  "repository_url": "https://github.com/arsamsarabi/arsam-io"
+}
