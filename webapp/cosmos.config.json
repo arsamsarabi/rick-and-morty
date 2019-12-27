@@ -1,0 +1,9 @@
+{
+  "$schema": "http://json.schemastore.org/cosmos-config",
+  "exportPath": "./cosmos-docs",
+  "watchDirs": ["./src", "./cosmos/__fixtures__"],
+  "webpack": {
+    "overridePath": "./cosmos/webpack.config.js"
+  },
+  "globalImports": ["./cosmos/styles.css"]
+}

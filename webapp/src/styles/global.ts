@@ -63,7 +63,7 @@ export const GlobalStyles = createGlobalStyle`
     font-weight: 400;
     font-size: 18px;
     overflow: hidden;
-    color: #f6f5f5;
+    color: #253238;
   }
 
   #__next {

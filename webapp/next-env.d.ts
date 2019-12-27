@@ -29,3 +29,15 @@ declare type Theme = {
   palette: Palette
   colors: Colors
 }
+
+/**
+ * Display Panels
+ */
+
+declare type BaseDisplay = {}
+
+declare type CharacterDisplay = {
+  id: string
+  title: string
+  image: string
+}

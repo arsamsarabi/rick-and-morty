@@ -1,10 +1,10 @@
 const colors: Colors = {
   black: '#000000',
   white: '#FFFFFF',
-  tuna: '#33313b',
-  morning: '#9BC5DE',
-  cancan: '#D99AB5',
-  sand: '#f6f5f5',
+  space: '#253238',
+  malibu: '#82D2F2',
+  violet: '#c51062',
+  vista: '#fafafa',
   pomegranate: '#c0392b',
   alizarin: '#e74c3c',
   orange: '#f39c12',
@@ -14,10 +14,10 @@ const colors: Colors = {
 }
 
 const palette: Palette = {
-  primary: colors.tuna,
-  secondary: colors.morning,
-  accent: colors.cancan,
-  contrast: colors.sand,
+  primary: colors.space,
+  secondary: colors.violet,
+  accent: colors.malibu,
+  contrast: colors.vista,
   danger: {
     light: colors.alizarin,
     dark: colors.pomegranate,
