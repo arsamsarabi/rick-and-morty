@@ -1,9 +1,10 @@
 import mongoose from 'mongoose'
 
-const { DB_URL } = process.env
+const { DB_URL = '' } = process.env
 
-if (DB_URL && DB_URL.length) {
-  mongoose.connect(DB_URL, { useNewUrlParser: true, useUnifiedTopology: true })
-} else {
-  throw new Error('Database address not found')
-}
+mongoose.set('bufferCommands', false)
+mongoose.connect(DB_URL, { useNewUrlParser: true, useUnifiedTopology: true }).catch(error => console.error(error))
+mongoose.connection.on('error', err => {
+  console.error(`MongoDB connection error: ${err}`)
+  process.exit(-1)
+})

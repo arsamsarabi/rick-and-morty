@@ -3,7 +3,15 @@ import { fetchAllCharacters, fetchAllLocations, fetchAllEpisodes } from './servi
 import { processCharacters, processLocations, processEpisodes } from './helpers'
 
 const saveCharacters = async (characters: CharacterType[]): Promise<void> => {
-  Character.collection.drop()
+  let list = await Character.db.db
+    .listCollections({
+      name: Character.collection.name,
+    })
+    .toArray()
+
+  if (list.length) {
+    Character.collection.drop()
+  }
   characters.forEach(character => {
     const newCharacter = new Character(character)
     newCharacter.save()
@@ -12,7 +20,7 @@ const saveCharacters = async (characters: CharacterType[]): Promise<void> => {
 }
 
 const saveLocations = async (locations: LocationType[]): Promise<void> => {
-  Location.collection.drop()
+  Location.collection?.drop()
   locations.forEach(location => {
     const newLocation = new Location(location)
     newLocation.save()
@@ -21,7 +29,7 @@ const saveLocations = async (locations: LocationType[]): Promise<void> => {
 }
 
 const saveEpisodes = async (episodes: EpisodeType[]): Promise<void> => {
-  Episode.collection.drop()
+  Episode.collection?.drop()
   episodes.forEach(episode => {
     const newEpisode = new Episode(episode)
     newEpisode.save()

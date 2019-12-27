@@ -1,0 +1,10 @@
+# ----------------------------------------------------------------
+# Run Webapp
+# ----------------------------------------------------------------
+FROM node:13 as builder
+WORKDIR /webapp
+COPY yarn.lock .npmrc package.json ./
+RUN yarn
+COPY . ./
+EXPOSE 3000
+CMD ["yarn", "dev"]

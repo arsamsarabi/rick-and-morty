@@ -9,17 +9,12 @@ module.exports = withFonts({
   exportPathMap: async function() {
     const paths = {
       '/': { page: '/' },
-      '/blog': { page: '/blog' },
     }
     return paths
   },
   webpack: function(config) {
     config.module.rules = [
       ...config.module.rules,
-      {
-        test: /\.md$/,
-        use: 'raw-loader',
-      },
       {
         test: /\.svg$/,
         use: ['@svgr/webpack'],

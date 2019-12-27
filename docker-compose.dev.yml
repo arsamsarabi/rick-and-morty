@@ -1,0 +1,21 @@
+version: "3"
+services:
+  rick-and-morty-services:
+    build:
+      context: "./services"
+      dockerfile: Dockerfile.dev
+    restart: unless-stopped
+    volumes:
+      - ./services:/services
+    ports:
+      - 4200:4200
+  rick-and-morty-webapp:
+    build:
+      context: "./webapp"
+      dockerfile: Dockerfile.dev
+    depends_on:
+      - rick-and-morty-services
+    volumes:
+      - ./webapp:/webapp
+    ports:
+      - 0.0.0.0:3000:3000

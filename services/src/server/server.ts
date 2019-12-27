@@ -23,7 +23,7 @@ app.all('*', (req, res) => {
 })
 
 app.listen(PORT, () => {
-  asciify('R&M API', { font: 'linux' }, (err: any, res: any) => {
+  asciify('R&M WIKI API', { font: 'linux' }, (err: any, res: any) => {
     console.log(chalk.bgHex('#6ab04c').hex('#dff9fb')(`✨ Magic happens on port ${PORT}! ✨`))
     console.log(chalk.cyan(res))
   })

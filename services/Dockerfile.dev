@@ -1,0 +1,9 @@
+FROM node:13 as builder
+WORKDIR /services
+ARG DB_URL
+ARG PORT
+COPY yarn.lock package.json ./
+RUN yarn
+COPY . ./
+EXPOSE 4200
+CMD ["yarn", "dev:server"]

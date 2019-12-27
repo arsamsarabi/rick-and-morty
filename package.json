@@ -1,5 +1,10 @@
 {
-  "name": "rick-and-morty-api",
+  "name": "rick-and-morty",
   "license": "UNLICENSED",
-  "private": true
+  "private": true,
+  "scripts": {
+    "compose:dev": "docker-compose -f docker-compose.dev.yml up ",
+    "compose:dev:build": "docker-compose -f docker-compose.dev.yml up --build",
+    "compose": "docker-compose up --build"
+  }
 }

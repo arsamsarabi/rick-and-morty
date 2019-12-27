@@ -1,14 +1,16 @@
 {
-  "name": "server",
+  "name": "rick-and-morty-server",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
   "author": "Arsam Sarabi <arsamsarabi@me.com>",
   "scripts": {
-    "dev:server": "ts-node-dev --respawn --transpileOnly src/index.ts",
+    "dev:server": "ts-node-dev --respawn --transpileOnly index.dev.ts",
     "dev:cron": "ts-node-dev --respawn --transpileOnly src/cron.ts",
-    "build": "tsc -p .",
-    "mongo": "docker start randt-mongo"
+    "build": "rm -rf dist && tsc -p .",
+    "mongo": "docker start randt-mongo",
+    "serve": "node dist/index.js",
+    "cron": "node dist/cron.js"
   },
   "contributors": [
     {
@@ -33,7 +35,7 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "graphql": "^14.5.8",
-    "mongoose": "^5.7.12",
+    "mongoose": "^5.8.3",
     "node-cron": "^2.0.3"
   },
   "devDependencies": {
@@ -42,6 +44,7 @@
     "@types/express": "^4.17.2",
     "@types/mongoose": "^5.5.32",
     "@types/node-cron": "^2.0.2",
+    "@types/node-fetch": "^2.5.4",
     "@typescript-eslint/eslint-plugin": "^2.8.0",
     "@typescript-eslint/parser": "^2.8.0",
     "eslint": "^6.7.0",

@@ -1,0 +1,12 @@
+version: "3"
+services:
+  rick-and-morty-services:
+    build: "./services"
+    environment:
+      - DB_URI=${DB_URI}
+      - PORT=${RAM_SERVICES_PORT}
+
+  rick-and-morty-webapp:
+    build: "./webapp"
+    depends_on:
+      - rick-and-morty-services
