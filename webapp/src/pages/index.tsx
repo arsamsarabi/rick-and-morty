@@ -3,13 +3,10 @@ import { useQuery } from '@apollo/react-hooks'
 import styled from 'styled-components'
 import { client } from '#utils/apollo'
 import { getCharacters } from '#graphql'
-import { Layout } from '#components'
+import { Layout, Grid } from '#components'
 
 const StyledApp = styled.section`
   flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 `
 
 const App = (): ReactElement => {
@@ -20,7 +17,9 @@ const App = (): ReactElement => {
   if (error) return <p>Error! ${error}</p>
   return (
     <Layout>
-      <StyledApp>Hello World!</StyledApp>
+      <StyledApp>
+        <Grid items={data.characters} />
+      </StyledApp>
     </Layout>
   )
 }

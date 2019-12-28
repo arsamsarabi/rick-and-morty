@@ -1,12 +1,11 @@
 import React, { ReactElement } from 'react'
-import { StyledDisplay, Content } from './display.styles'
+import { StyledDisplay, Avatar } from './display.styles'
 
-export const Display = ({ title, image }: CharacterDisplay): ReactElement => {
+export const Display = ({ image, title }: CharacterDisplay): ReactElement => {
   return (
-    <StyledDisplay image={image}>
-      <Content>
-        <h1>{title}</h1>
-      </Content>
+    <StyledDisplay>
+      <Avatar image={image} />
+      <h1>{title}</h1>
     </StyledDisplay>
   )
 }

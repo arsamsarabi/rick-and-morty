@@ -10,3 +10,14 @@ export const getCharacters = () => gql`
     }
   }
 `
+
+export const getCharacter = () => gql`
+  query character($id: String!) {
+    character(id: $id) {
+      apiId
+      name
+      image
+      episodesCount
+    }
+  }
+`
