@@ -25,5 +25,6 @@ declare type CharacterType = Omit<RawCharacterType, OmittedFromRawCharacter> & {
   apiId: string
   origin: string
   location: string
+  episodesCount?: number
   episodes: string[]
 }

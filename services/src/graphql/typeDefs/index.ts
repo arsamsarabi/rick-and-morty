@@ -29,6 +29,7 @@ const typeDefs = gql`
     image: String!
     episodes: [Episode!]!
     created: String!
+    episodesCount: Int
   }
 
   type Query {

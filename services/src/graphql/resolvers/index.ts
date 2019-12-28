@@ -26,6 +26,7 @@ const queries = {
 export const resolvers = {
   Query: queries,
   Character: {
+    episodesCount: (character: CharacterType) => character.episodes.length,
     episodes: (character: CharacterType) => {
       let result: any = []
       character.episodes.forEach((e: string) => {
